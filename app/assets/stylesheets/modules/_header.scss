@@ -1,0 +1,29 @@
+header {
+  width: 100%;
+  height: 200px;
+  background-color: $White;
+  .title-logo {
+    padding: 30px 50px;
+    font-size: 50px;
+    font-weight: bold;
+    color: $mainBrown;
+  }
+  .menu {
+    display: flex;
+    justify-content: flex-end;
+    &__list {
+      display: inline-block;
+      width: 100px;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      margin: 0px 30px;
+      background-color: $mainBrown;
+      color: $White;
+      a:hover {
+        cursor: pointer;
+        text-decoration: none;
+      }
+    }
+  }
+}
