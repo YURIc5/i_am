@@ -1,0 +1,45 @@
+.user-header {
+  width: 100%;
+  height: 100px;
+  background-color: $White;
+  .title-logo {
+    padding: 30px 50px;
+    font-size: 50px;
+    font-weight: bold;
+    color: $mainBrown;
+  }
+}
+.main {
+  width: 100%;
+  background-color: $White;
+  .inner {
+    width: 50%;
+    margin: 0 auto;
+    height: 500px;
+    background-color: #fff;
+    &__title {
+      text-align: center;
+      height: 80px;
+      line-height: 80px;
+      font-size: 20px;
+      color: $mainBrown;
+      font-weight: bold;
+      border-bottom-style: dotted;
+    }
+    &__menu {
+      text-align: center;
+    }
+  }
+}
+.user-footer {
+  width: 100%;
+  height: 100px;
+  background-color: $White;
+}
+.button-default {
+  display: block;
+  width: 50%;
+  height: 50px;
+  line-height: 50px;
+  margin:50px auto;
+}
