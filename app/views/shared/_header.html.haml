@@ -1,11 +1,13 @@
 %header.header
   %h1.title-logo i am...
   %ul.menu
-    %li
-      =link_to "新規登録", new_user_registration_path, class: "menu__list"
-    %li
-      =link_to "ログイン", "#", class: "menu__list"
-    %li
-      =link_to "マイページ", "#", class: "menu__list"
-    %li
-      =link_to "ログアウト", "#", class: "menu__list"
+    - if user_signed_in?
+      %li
+        =link_to "マイページ", "#", class: "menu__list"
+      %li
+        =link_to "ログアウト", destroy_user_session_path,method: :delete, class: "menu__list"
+    - else
+      %li
+        =link_to "新規登録", new_user_path, class: "menu__list"
+      %li
+        =link_to "ログイン", new_user_session_path, class: "menu__list"

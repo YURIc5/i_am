@@ -3,11 +3,33 @@
 .main
   .inner
     %h1.inner__title 新規登録
-    .inner__menu
-      =link_to '#',class: "button-default" do
-        メールアドレスで登録する
-      =link_to '#',class: "button-default" do
-        Googleで登録する
-      =link_to '#',class: "button-default" do
-        Twitterで登録する
+    = form_for(resource, as: resource_name, url: registration_path(resource_name),html:{class: "form-content"}) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      .field
+        = f.label :ニックネーム
+        %spna.form-require 必須
+        %br/
+        = f.text_field :nickname, autofocus: true
+      .field
+        = f.label :メールアドレス
+        %spna.form-require 必須
+        %br/
+        = f.email_field :email, autocomplete: "email"
+      .field
+        = f.label :パスワード
+        %spna.form-require 必須
+        - if @minimum_password_length
+          %em
+            (#{@minimum_password_length} characters minimum)
+        %br/
+        = f.password_field :password, autocomplete: "new-password"
+      .field
+        = f.label :パスワード確認
+        %spna.form-require 必須
+        %br/
+        = f.password_field :password_confirmation, autocomplete: "new-password"
+
+      .submit
+        = f.submit "登録する", class: "btn-default"
+      = render "devise/shared/links"
 %footer.user-footer
