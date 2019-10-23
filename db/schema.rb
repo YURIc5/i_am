@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_23_085530) do
+ActiveRecord::Schema.define(version: 2019_10_23_110852) do
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "namespace"
@@ -36,6 +36,23 @@ ActiveRecord::Schema.define(version: 2019_10_23_085530) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  end
+
+  create_table "animals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "birth_year", null: false
+    t.integer "birth_month"
+    t.integer "birth_day"
+    t.text "character", null: false
+    t.integer "vaccine", null: false
+    t.integer "castration", null: false
+    t.integer "size", null: false
+    t.integer "prefecture_id", null: false
+    t.integer "gender", null: false
+    t.integer "senior_application", null: false
+    t.integer "single_application", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
