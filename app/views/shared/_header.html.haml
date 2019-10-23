@@ -3,7 +3,7 @@
   %ul.menu
     - if user_signed_in?
       %li
-        =link_to "マイページ", "#", class: "menu__list"
+        =link_to "マイページ", "/users/#{current_user[:id]}", class: "menu__list"
       %li
         =link_to "ログアウト", destroy_user_session_path,method: :delete, class: "menu__list"
     - else
