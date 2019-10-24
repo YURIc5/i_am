@@ -1,5 +1,6 @@
 %li.animal-card__list
   .animal-info
+    = fa_icon "heart", class: "heart-icon"
     = image_tag ("#{animal.animalimages.first.image}"), class: "animal-info__image"
     .animal-info__list
       .animal-info__list--type 
@@ -9,6 +10,7 @@
     .animal-info__list.iam
       .animal-info__list--name
         = animal.name
-      .animal-info__list--gender ♀ 
+      .animal-info__list--gender
+        = animal.gender
       .animal-info__list--character
         = animal.character
