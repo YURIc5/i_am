@@ -1,11 +1,14 @@
--# %li.animal-card__list
--#   .animal-info
--#     = image_tag ("#{animal.animalimage.first.image}"), class: "animal-info__image"
--#     .animal-info__list
--#       .animal-info__list--type 雑種
--#       .animal-info__list--age 3ヶ月くらい
--#       .animal-info__list--area　東京都
--#     .animal-info__list.iam
--#       .animal-info__list--name まる
--#       .animal-info__list--gender ♀ 
--#       .animal-info__list--character　懐っこい
+%li.animal-card__list
+  .animal-info
+    = image_tag ("#{animal.animalimages.first.image}"), class: "animal-info__image"
+    .animal-info__list
+      .animal-info__list--type 
+        = animal.type.name
+      .animal-info__list--age 3ヶ月くらい
+      .animal-info__list--area　東京都
+    .animal-info__list.iam
+      .animal-info__list--name
+        = animal.name
+      .animal-info__list--gender ♀ 
+      .animal-info__list--character
+        = animal.character
