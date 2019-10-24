@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_23_130700) do
+ActiveRecord::Schema.define(version: 2019_10_24_090426) do
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "namespace"
@@ -70,6 +70,10 @@ ActiveRecord::Schema.define(version: 2019_10_23_130700) do
     t.integer "single_application", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "group_id"
+    t.bigint "type_id"
+    t.index ["group_id"], name: "index_animals_on_group_id"
+    t.index ["type_id"], name: "index_animals_on_type_id"
   end
 
   create_table "favorites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -139,6 +143,8 @@ ActiveRecord::Schema.define(version: 2019_10_23_130700) do
   add_foreign_key "animal_tags", "animals"
   add_foreign_key "animal_tags", "tags"
   add_foreign_key "animalimages", "animals"
+  add_foreign_key "animals", "groups"
+  add_foreign_key "animals", "types"
   add_foreign_key "favorites", "animals"
   add_foreign_key "favorites", "users"
   add_foreign_key "profiles", "animals"
