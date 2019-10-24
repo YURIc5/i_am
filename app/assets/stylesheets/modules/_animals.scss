@@ -21,21 +21,68 @@
       &__menu {
 
       }
-      .animal-card {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 20px;
-        &__list {
-          height: 270px;
-          background-color: pink;
-          display: inline-block;
-        }
-      }
     }
 
     a:hover {
       cursor: pointer;
       text-decoration: none;
+    }
+  }
+}
+// 動物のカード
+.animal-card {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  &__list {
+    height: 270px;
+    background-color:#fff;
+    display: inline-block;
+    border: dotted 5px $mainBrown;
+    .animal-info {
+      &__image {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+        display: block;
+      }
+      &__list {
+        text-align: center;
+        font-size: 10px;
+        &--type {
+          font-size: 12px;
+        }
+        &--age {
+          display: inline;
+        }
+        &--area::before {
+          content:"/";
+        }
+        &--area {
+          display: inline;
+        }
+        &--name {
+          display: inline;
+        }
+        &--gender {
+          display: inline;
+          color: #fff;
+        }
+        &--character {
+          display: inline;
+        }
+
+      }
+      .iam {
+        border-radius: 30px;
+        background-color: pink;
+        width: 100%;
+        height: 30px;
+        line-height: 30px;
+        font-size: 15px;
+        font-weight: bold;
+        color: brown;
+      }
     }
   }
 }
