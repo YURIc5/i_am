@@ -1,18 +1,32 @@
 = render 'shared/header'
 .wrapper
   = render "/shared/sideber"
-  .main-contents
-    .top-content
-      .top-content__left
-        .top-content__left--image
-          = link_to "#" do
-            = fa_icon 'user', class:"user-icon"
-      .top-content__right.clearfix
-        .top-content__right--name
-          = current_user.nickname
-          さん
-    %ul.mypage-menu
-      %li.mypage-menu__list  お気に入り一覧
-      %li.mypage-menu__list　コンテンツ２
-      %li.mypage-menu__list　コンテンツ３
+  - if current_user.try(:admin?)
+    .main-contents
+      .top-content
+        .top-content__left
+          .top-content__left--image
+            = link_to "#" do
+              = fa_icon 'user', class:"user-icon"
+        .top-content__right.clearfix
+          .top-content__right--name
+            = current_user.nickname
+            さん
+      %ul.mypage-menu
+        = link_to "管理画面へ", "/admin", class:"btn-admin"
+  - else
+    .main-contents
+      .top-content
+        .top-content__left
+          .top-content__left--image
+            = link_to "#" do
+              = fa_icon 'user', class:"user-icon"
+        .top-content__right.clearfix
+          .top-content__right--name
+            = current_user.nickname
+            さん
+      %ul.mypage-menu
+        %li.mypage-menu__list  お気に入り一覧
+        %li.mypage-menu__list　コンテンツ２
+        %li.mypage-menu__list　コンテンツ３
 = render 'shared/footer'

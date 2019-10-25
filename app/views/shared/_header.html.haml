@@ -1,5 +1,7 @@
 %header.header
-  %h1.title-logo i am...
+  %h1
+    = link_to "i am...", root_path, class: "title-logo"
+    = fa_icon "paw", class: "bland-icon"
   %ul.menu
     - if user_signed_in?
       %li

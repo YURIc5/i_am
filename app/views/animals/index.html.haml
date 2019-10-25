@@ -8,44 +8,6 @@
       %h1.animals-content__title 里親募集情報
       %nav.animals-content__menu
       %ul.animal-card
-        %li.animal-card__list
-          .animal-info
-        %li.animal-card__list
-          .animal-info
-        %li.animal-card__list
-          .animal-info
-        %li.animal-card__list
-          .animal-info
-        %li.animal-card__list
-          .animal-info
-        %li.animal-card__list
-          .animal-info
-        %li.animal-card__list
-          .animal-info
-        %li.animal-card__list
-          .animal-info
-        %li.animal-card__list
-          .animal-info
-        %li.animal-card__list
-          .animal-info
-        %li.animal-card__list
-          .animal-info
-        %li.animal-card__list
-          .animal-info
-        %li.animal-card__list
-          .animal-info
-        %li.animal-card__list
-          .animal-info
-        %li.animal-card__list
-          .animal-info
-        %li.animal-card__list
-          .animal-info
-        %li.animal-card__list
-          .animal-info
-        %li.animal-card__list
-          .animal-info
-        %li.animal-card__list
-          .animal-info
-        %li.animal-card__list
-          .animal-info
-=render "/shared/footer"           
+        - @animals.each do |animal|
+          = render partial: "shared/animal-card", locals:{animal: animal}  
+=render "/shared/footer"         
