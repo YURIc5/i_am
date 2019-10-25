@@ -1,7 +1,8 @@
 %li.animal-card__list
   .animal-info
     = fa_icon "heart", class: "heart-icon"
-    = image_tag ("#{animal.animalimages.first.image}"), class: "animal-info__image"
+    = link_to animal_path(animal) do
+      = image_tag ("#{animal.animalimages.first.image}"), class: "animal-info__image"
     .animal-info__list
       .animal-info__list--type 
         = animal.type.name
