@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :show]
   resources :animals, only: [:index, :show]
   resources :types, only:[:index]
-  resources :groups, only:[:groups]
+  resources :groups, only:[:index, :show]
 end
