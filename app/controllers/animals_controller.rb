@@ -1,6 +1,6 @@
 class AnimalsController < ApplicationController
   def index
-    @animal = Animal.order("created_at DESC")
+    @animals = Animal.order("created_at DESC")
   end
 
   def show
