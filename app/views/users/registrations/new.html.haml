@@ -1,5 +1,5 @@
 %header.user-header
-  %h1.title-logo i am...
+  .title-logo i am...
 .main
   .inner
     %h1.inner__title 新規登録
@@ -15,20 +15,20 @@
         %spna.form-require 必須
         %br/
         = f.email_field :email, autocomplete: "email"
-      .field
-        = f.label :パスワード
-        %spna.form-require 必須
-        - if @minimum_password_length
-          %em
-            (#{@minimum_password_length} characters minimum)
-        %br/
-        = f.password_field :password, autocomplete: "new-password"
-      .field
-        = f.label :パスワード確認
-        %spna.form-require 必須
-        %br/
-        = f.password_field :password_confirmation, autocomplete: "new-password"
-
+      -if @omniauth.nil?
+        .field
+          = f.label :パスワード
+          %spna.form-require 必須
+          - if @minimum_password_length
+            %em
+              (#{@minimum_password_length} characters minimum)
+          %br/
+          = f.password_field :password, autocomplete: "new-password"
+        .field
+          = f.label :パスワード確認
+          %spna.form-require 必須
+          %br/
+          = f.password_field :password_confirmation, autocomplete: "new-password"
       .submit
         = f.submit "登録する", class: "btn-default"
       = render "devise/shared/links"

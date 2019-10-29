@@ -4,10 +4,11 @@
   .inner
     %h1.inner__title 新規登録
     .inner__menu
-      =link_to new_user_registration_path, class: "button-default" do
+      = link_to new_user_registration_path, class: "button-default" do
         メールアドレスで登録する
-      =link_to '#',class: "button-default" do
-        Googleで登録する
-      =link_to '#',class: "button-default" do
-        Twitterで登録する
+      = link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: "button-default btn-sns btn-sns-google" do
+        Googleでログイン
+      -# = link_to '#',class: "button-default btn-sns btn-sns-twitter" do
+      -#   =fa_icon 'twitter',class:'icon'
+      -#   Twitterで登録する
 %footer.user-footer
