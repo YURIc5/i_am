@@ -114,9 +114,19 @@ input {
   align-items: center;
   color: $mainBrown;
   &__list {
-    display: inline-block;
+    display: block;
     width: 20%;
+    height: 100px;
+    background-color: #fff;
+    text-align: center;
+    line-height: 100px;
   }
+}
+.content-box {
+  width:90%;
+  margin: 0 auto;
+  height: 600px;
+  background-color: #fff;
 }
 .btn-admin {
   width: 50%;
