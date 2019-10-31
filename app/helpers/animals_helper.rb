@@ -1,4 +1,5 @@
 module AnimalsHelper
+  
   def age(animal)
     t = Date.today.year
     if animal.birth_year == t

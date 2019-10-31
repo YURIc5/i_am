@@ -1,6 +1,7 @@
 %li.animal-card__list
   .animal-info
-    = fa_icon "heart", class: "heart-icon"
+    .animal-info{id: "favorite_of_#{animal.id}"}
+      = render partial: "/favorites/favorite", locals:{animal: animal, favorites: @favorites} 
     = link_to animal_path(animal) do
       = image_tag ("#{animal.animalimages.first.image}"), class: "animal-info__image"
     .animal-info__list
