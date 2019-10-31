@@ -1,17 +1,20 @@
 %li.animal-card__list
   .animal-info
-    = fa_icon "heart", class: "heart-icon"
+    .animal-info{id: "favorite_of_#{animal.id}"}
+      = render partial: "/favorites/favorite", locals:{animal: animal, favorites: @favorites} 
     = link_to animal_path(animal) do
       = image_tag ("#{animal.animalimages.first.image}"), class: "animal-info__image"
     .animal-info__list
       .animal-info__list--type 
         = animal.type.name
-      .animal-info__list--age 3ヶ月くらい
-      .animal-info__list--area　東京都
+      .animal-info__list--age 
+        = age(animal) 
+      .animal-info__list--area
+        = animal.prefecture.name
     .animal-info__list.iam
       .animal-info__list--name
         = animal.name
       .animal-info__list--gender
-        = animal.gender
+        = gender(animal)
       .animal-info__list--character
         = animal.character

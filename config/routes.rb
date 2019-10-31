@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   }
   root to: 'animals#index'
   resources :users, only: [:new, :show]
-  resources :animals, only: [:index, :show]
+  resources :animals, only: [:index, :show] do
+    resources :favorites, only: [:create, :destroy]
+  end
   resources :types, only:[:index]
   resources :groups, only:[:index, :show]
 end

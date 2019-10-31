@@ -1,0 +1,23 @@
+- if user_signed_in?
+  -# ログインしている人
+  - unless animal.favorite_user(current_user.id).blank?
+    -# すでにお気に入り済みの人
+    = link_to animal_favorite_path(animal_id: animal.id ,id: animal.favorites[0].id), method: :delete, remote: true do
+      .vertical_favorite
+        = fa_icon "heart", class: "heart-icon red-text"
+        %span.red-text
+          = animal.favorites_count
+  - else
+    -# お気に入りしていない人
+    = link_to animal_favorites_path(animal.id), method: :post, remote: true do
+      .vertical_favorite
+        = fa_icon "heart", class: "heart-icon beige-text"
+        %span.beige-text.text-darken-2
+          = animal.favorites_count
+- else
+  -# ログインしていない人
+  .vertical_favorite
+    = link_to  new_user_session_path do
+      = fa_icon "heart", class: "heart-icon beige-text"
+      %span.beige-text
+        = animal.favorites_count

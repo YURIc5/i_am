@@ -7,12 +7,15 @@
         .top-content__left--image
           = image_tag ("#{@animal.animalimages.first.image}"), class: "animalshow-image"
       .top-content__right.clearfix
-        .top-content__right--name
-          = @animal.name
-        = link_to group_path(@animal.group), class: "group-name" do
-          = @animal.group.name
+        .animal
+          .animal__name
+            = @animal.name
+          .animal__group
+            = link_to group_path(@animal.group), class: "group-name" do
+              = @animal.group.name
     %ul.mypage-menu
       %li.mypage-menu__list  コンテンツ1
       %li.mypage-menu__list　コンテンツ２
       %li.mypage-menu__list　コンテンツ３
+    .content-box
 =render "/shared/footer"         
