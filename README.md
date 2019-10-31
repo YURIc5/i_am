@@ -1,24 +1,45 @@
-# README
+## WEBサイト名
+ 
+i am...　
+　動物と里親さんとの出会い＆支援の輪を広げよう
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 概要
+ 
+ 保護されている動物が多くの飼い主や支援者と出会える＆そんな動物達を救おうとしている方の助けにもなる！そんなコンテンツを持ったWEBサイトを目指して制作しています。
 
-Things you may want to cover:
+- URL: 準備中
+- テストログイン用: email test@example.com / password 123456789
 
-* Ruby version
+ 
+## 制作背景
+ 
+保護動物と里親をマッチングするサイトはすでにありますが、さらに機能を追加し、保護活動に取り組む方の援助もできるようにしたいと思いました。
+街頭募金の代わりになるくらいの収益化の仕組みや、保護動物について知ってもらえるコンテンツを追加したいと思い制作に取り組んでいます。
+ 
+## 使用した技術と機能一覧
+ 
+- フロント
+  - haml/Sass/JavaSqript/jQuery
 
-* System dependencies
+- サーバーサイド
+  - ユーザー登録機能(gem devise)
+  - ユーザー登録機能（SNS認証）　(gem omniauth)
+  - お気に入り機能
+  - 管理画面（gem rails admin)
 
-* Configuration
+- インフラ
+  - heroku
+  - Mysql
+  - S3（AWS）
 
-* Database creation
 
-* Database initialization
+## 追加したい機能
 
-* How to run the test suite
+- 保護団体などの所在地を示すページ（google maps api）
+- 動画コンテンツ（youtube api?)
+- カテゴリ検索機能 
+- 単体テスト(RSpec)
+- 統合テスト(System Spec)
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
 
-* ...
