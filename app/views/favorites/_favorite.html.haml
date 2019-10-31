@@ -17,6 +17,7 @@
 - else
   -# ログインしていない人
   .vertical_favorite
-    = fa_icon "heart", class: "heart-icon beige-text"
-    %span.beige-text
-      = animal.favorites_count
+    = link_to  new_user_session_path do
+      = fa_icon "heart", class: "heart-icon beige-text"
+      %span.beige-text
+        = animal.favorites_count
