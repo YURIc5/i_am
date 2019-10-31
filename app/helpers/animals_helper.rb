@@ -3,22 +3,22 @@ module AnimalsHelper
   def age(animal)
     t = Date.today.year
     if animal.birth_year == t
-      case animal.type_id
-      when 1 then
+      case animal.type.parent.name
+      when "犬" then
         "子犬"
       else
         "子猫"
       end
     elsif animal.birth_year <= t + 10
-      case animal.type_id
-      when 1 then
+      case animal.type.parent.name
+      when "犬" then
         "老犬"
       else
         "老猫"
       end
     else
-      case animal.type_id
-      when 1 then
+      case animal.type.parent.name
+      when "犬" then
         "成犬"
       else
         "成猫"
