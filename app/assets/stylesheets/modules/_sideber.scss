@@ -26,4 +26,57 @@
     cursor: pointer;
     text-decoration: none;
   }
+
+  .seach-box {
+    width: 90%;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    border-bottom: 1px solid $mainBrown;
+    &__list {
+      justify-content: space-between;
+      position: relative;
+    }
+    p {
+      display: inline-block;
+      height: 34px;
+      position: absolute;
+      top: 2px;
+      left:120px;
+    }
+  }
+  label {
+    display: block;
+    margin: 20px auto;
+    color: $mainBrown;
+    font-weight: bold;
+  }
+  .title::before {
+    font-family: FontAwesome;
+    content: "\f002";
+    color: $mainBrown;
+    padding-right: 5px;
+  }
+  input {
+    width: 70%;
+    height: 30px;
+  }
+  input[type="radio"] {
+    width: 20%;
+    margin: 0 auto;
+    font-size: 20px;
+    position: absolute;
+      top:0;
+      left:80px;
+
+  }
+  input[type="submit"] {
+    margin: 20px auto;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  select {
+    width: 70%;
+    height: 22px; 
+    font-size: 14px;
+  }
 }

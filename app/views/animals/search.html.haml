@@ -1,0 +1,11 @@
+=render "/shared/header"
+.wrapper
+  = render "/shared/sideber"
+  .main-contents
+    .animals-content
+      %h1.animals-content__title 検索結果
+      %nav.animals-content__menu
+      %ul.animal-card
+        - @animals.each do |animal|
+          = render partial: "shared/animal-card", locals:{animal: animal}  
+=render "/shared/footer"         
