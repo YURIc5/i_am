@@ -5,13 +5,11 @@ class AnimalsController < ApplicationController
     @search_animals = @q.result(distinct: true)
     @types = Type.all
   end
-  
 
   def search
     @types = Type.all
     @q = Animal.search(search_params)
     @animals = @q.result(distinct: true)
-    # binding.pry
   end
 
   def show
