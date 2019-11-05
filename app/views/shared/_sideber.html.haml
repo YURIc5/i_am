@@ -1,16 +1,47 @@
 .side-contents
   .search-content
     .search-content__title 検索する
-    %ul
-      %li
-        = link_to "種別から探す", "#", class:"search-content__list"
-      %li
-        = link_to "性別から探す", "#", class:"search-content__list"
-      %li
-        = link_to "募集地域から探す", "#", class:"search-content__list"
-      %li
-        = link_to "年齢期から探す", "#", class:"search-content__list"
-      %li
-        = link_to "大きさから探す", "#", class:"search-content__list"
-      %li
-        = link_to "タグから探す", "#", class:"search-content__list"
+    = search_form_for(@q, url:search_path) do |f|
+      .seach-box
+        = f.label :name, "名前から探す", class:"title"
+        = f.search_field :name_cont,  placeholder:"例）たま"
+        %br/
+      .seach-box
+        = f.label :type_id, "犬・猫", class:"title"
+        .seach-box__list
+          #{f.radio_button :type_id_eq, '', {:checked => true}}
+          %p 指定なし
+          %br/
+        .seach-box__list
+          #{f.radio_button :type_id_eq, '1' || '3'} 
+          %p 犬
+          %br/
+        .seach-box__list
+          #{f.radio_button :type_id_eq, '2025' || '205'}
+          %p 猫
+          %br/
+      .seach-box
+        = f.label :type_id, '種類', class:"title"
+        = f.collection_select :type_id_eq, @types, :id, :name, :include_blank => '指定なし'
+        %br/
+      .seach-box
+        = f.label :gender_id, '性別から探す', class:"title"
+        .seach-box__list
+          #{f.radio_button :gender_eq, '', {:checked => true}}
+          %p 指定なし
+          %br/
+        .seach-box__list
+          #{f.radio_button :gender_eq, 1}
+          %p オス♂
+          %br/
+        .seach-box__list
+          #{f.radio_button :gender_eq, 2}
+          %p メス♀
+          %br/
+      .seach-box
+        = f.label :prefecture_id, '地域から探す', class:"title"
+        %br/
+        = f.collection_select :prefecture_id_eq, Prefecture.all, :id, :name, :include_blank => '指定なし'
+        %br/
+      = f.submit "絞り込む"
+

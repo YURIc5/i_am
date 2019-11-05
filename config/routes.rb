@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   end
   resources :types, only:[:index]
   resources :groups, only:[:index, :show]
+
+  get 'search', to: 'animals#search'
 end
