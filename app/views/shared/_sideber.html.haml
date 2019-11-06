@@ -22,7 +22,7 @@
           %br/
       .seach-box
         = f.label :type_id, '種類', class:"title"
-        = f.collection_select :type_id_eq, @types, :id, :name, :include_blank => '指定なし'
+        = f.collection_select :type_id_eq, @search_types, :id, :name, :include_blank => '指定なし'
         %br/
       .seach-box
         = f.label :gender_id, '性別から探す', class:"title"
