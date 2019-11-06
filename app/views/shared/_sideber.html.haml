@@ -7,17 +7,17 @@
         = f.search_field :name_cont,  placeholder:"例）たま"
         %br/
       .seach-box
-        = f.label :type_id, "犬・猫", class:"title"
+        = f.label :ancestry, "犬・猫", class:"title"
         .seach-box__list
-          #{f.radio_button :type_id_eq, '', {:checked => true}}
+          #{f.radio_button :type_ancestry_eq, '', {checked: true}}
           %p 指定なし
           %br/
         .seach-box__list
-          #{f.radio_button :type_id_eq, '1' || '3'} 
+          #{f.radio_button :type_ancestry_eq, dogs}
           %p 犬
           %br/
         .seach-box__list
-          #{f.radio_button :type_id_eq, '2025' || '205'}
+          #{f.radio_button :type_ancestry_eq, cats}
           %p 猫
           %br/
       .seach-box
@@ -25,9 +25,9 @@
         = f.collection_select :type_id_eq, @search_types, :id, :name, :include_blank => '指定なし'
         %br/
       .seach-box
-        = f.label :gender_id, '性別から探す', class:"title"
+        = f.label :gender, '性別から探す', class:"title"
         .seach-box__list
-          #{f.radio_button :gender_eq, '', {:checked => true}}
+          #{f.radio_button :gender_eq, '', {checked: true}}
           %p 指定なし
           %br/
         .seach-box__list
@@ -41,7 +41,7 @@
       .seach-box
         = f.label :prefecture_id, '地域から探す', class:"title"
         %br/
-        = f.collection_select :prefecture_id_eq, Prefecture.all, :id, :name, :include_blank => '指定なし'
+        = f.select :prefecture_id_eq, Animal.prefecture_ids.keys, :include_blank => '指定なし'
         %br/
       = f.submit "絞り込む"
 

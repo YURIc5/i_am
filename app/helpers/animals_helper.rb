@@ -1,5 +1,14 @@
 module AnimalsHelper
-  
+  def dogs
+    dog = Type.find_by(name: "犬")
+    dog.id
+  end
+
+  def cats
+    cat = Type.find_by(name: "猫")
+    cat.children.ids
+  end
+
   def age(animal)
     t = Date.today.year
     if animal.birth_year == t
