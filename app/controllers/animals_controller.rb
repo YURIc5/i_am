@@ -6,7 +6,7 @@ class AnimalsController < ApplicationController
   end
 
   def search
-  
+  # binding.pry
   end
 
   def show
