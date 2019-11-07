@@ -7,6 +7,13 @@ class User < ApplicationRecord
         has_many :animals, through: :favorites
         has_one :profile
 
+  #バリデーション  
+  validates :nickname , presence: true ,
+                        length: { in: 3..10, message: "は3文字以上10文字以下で入力してください"}
+  validates :password , presence: true ,
+                        format: {with:/\A[a-zA-Z0-9]+\z/, message:"は半角英数字で入力してください"}
+
+  #SNS認証
   def self.find_for_oauth(auth)
     #登録済みのUserか確認
     user = User.where(uid: auth.uid, provider: auth.provider).first

@@ -5,33 +5,34 @@
 .main
   .inner
     %h1.inner__title 新規登録
-    = form_for(resource, as: resource_name, url: registration_path(resource_name),html:{class: "form-content"}) do |f|
-      = render "devise/shared/error_messages", resource: resource
-      .field
-        = f.label :ニックネーム
-        %spna.form-require 必須
-        %br/
-        = f.text_field :nickname, autofocus: true
-      .field
-        = f.label :メールアドレス
-        %spna.form-require 必須
-        %br/
-        = f.email_field :email, autocomplete: "email"
-      -if @omniauth.nil?
-        .field
-          = f.label :パスワード
-          %spna.form-require 必須
-          - if @minimum_password_length
-            %em
-              (#{@minimum_password_length} characters minimum)
-          %br/
-          = f.password_field :password, autocomplete: "new-password"
-        .field
-          = f.label :パスワード確認
+    .inner__menu
+      = form_for(resource, as: resource_name, url: registration_path(resource_name),html:{class: "form-content"}) do |f|
+        = render 'layouts/error_messages', model: f.object
+        .field.first
+          = f.label :nickname
           %spna.form-require 必須
           %br/
-          = f.password_field :password_confirmation, autocomplete: "new-password"
-      .submit
-        = f.submit "登録する", class: "btn-default"
-      = render "devise/shared/links"
+          = f.text_field :nickname, autofocus: true, placeholder: "　３〜１０文字"
+        .field
+          = f.label :email
+          %spna.form-require 必須
+          %br/
+          = f.email_field :email, autocomplete: "email"
+        -if @omniauth.nil?
+          .field
+            = f.label :password
+            %spna.form-require 必須
+            - if @minimum_password_length
+              -# %em
+              -#   (#{@minimum_password_length} 文字以上)
+            %br/
+            = f.password_field :password, autocomplete: "new-password", placeholder: " 半角英数字6文字以上"
+          .field
+            = f.label :password_confirmation
+            %spna.form-require 必須
+            %br/
+            = f.password_field :password_confirmation, autocomplete: "new-password"
+        .submit
+          = f.submit "登録する", class: "btn-default"
+        = render "devise/shared/links"
 %footer.user-footer
